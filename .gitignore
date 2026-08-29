@@ -1,0 +1,17 @@
+# Datasets and model weights
+data/
+*.csv
+*.json
+*.pt
+*.bin
+*.h5
+*.safetensors
+
+# Caches
+__pycache__/
+.ipynb_checkpoints/
+
+# Security
+# Note: Rely on runtime user input for API keys rather than local files, 
+# but ignore standard env files just in case.
+.env
