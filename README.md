@@ -11,3 +11,4 @@ An end-to-end NLP pipeline designed to ingest unstructured commercial contracts,
 * **Environments:** Kaggle Notebooks
 * **NLP & ML:** Hugging Face `transformers`, `datasets`, PyTorch, Scikit-learn
 * **Data Processing:** Pandas, PyMuPDF
+(Ongoing)
