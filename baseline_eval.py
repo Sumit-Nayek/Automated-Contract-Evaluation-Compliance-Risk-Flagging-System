@@ -87,13 +87,18 @@ def best_score_over_golds(pred: str, gold_texts):
 # ---------------------------------------------------------------------------
 def get_category(example) -> str:
     """
-    CUAD's HF 'id' field is formatted as '<contract_title>__<Category Name>'.
-    Fall back to the raw question text if the id doesn't split cleanly,
-    so the script never silently drops an example.
+    CUAD's HF 'id' field is formatted as
+    '<contract_title>__<Category Name>_<qa_index>', e.g.
+    'LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Document Name_0'.
+    Strip the trailing '_<index>' so all QA pairs for the same clause type
+    collapse into one category. Fall back to the raw question text if the
+    id doesn't split cleanly, so the script never silently drops an example.
     """
     ex_id = example.get("id", "")
     if "__" in ex_id:
-        return ex_id.split("__")[-1]
+        category = ex_id.split("__")[-1]
+        category = re.sub(r"_\d+$", "", category)
+        return category
     return example.get("question", "UNKNOWN_CATEGORY")[:60]
 
 
@@ -123,7 +128,9 @@ def run_baseline():
     from transformers import pipeline
 
     print("Loading CUAD dataset...")
-    dataset = load_dataset("cuad")
+    # "cuad" (no namespace) no longer resolves as a loadable dataset under
+    # datasets==2.18.0 - use the maintained repo under its full path instead.
+    dataset = load_dataset("theatticusproject/cuad-qa")
     train_df = pd.DataFrame(dataset["train"])
 
     print(f"Sampling {N_PER_CATEGORY} example(s) per category...")
