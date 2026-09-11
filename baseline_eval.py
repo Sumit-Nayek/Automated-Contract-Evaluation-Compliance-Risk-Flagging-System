@@ -26,7 +26,7 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-N_PER_CATEGORY = 4          # keep total calls modest for free-tier compute
+N_PER_CATEGORY = 2          # keep total calls modest for free-tier compute
 CONTEXT_CHAR_LIMIT = 2500   # same truncation as the Month-1 notebook baseline
 NO_ANSWER_CONF_THRESHOLD = 0.15   # below this, we treat the model as "abstaining"
 RANDOM_SEED = 42
