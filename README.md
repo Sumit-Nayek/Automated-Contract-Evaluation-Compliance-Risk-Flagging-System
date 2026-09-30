@@ -1,6 +1,6 @@
 # Automated Contract Evaluation & Risk Flagging System
 
-An end-to-end NLP pipeline designed to ingest unstructured commercial contracts, extract 41 standard legal clauses using domain-adapted transformers (LEGAL-BERT), and flag protocol deviations using statistical similarity thresholds.
+NLP pipeline designed to ingest unstructured commercial contracts, extract 41 standard legal clauses using domain-adapted transformers (LEGAL-BERT), and flag protocol deviations using statistical similarity thresholds.
 
 ## Project Architecture (3-Month Timeline)
 * **Phase 1 (Done):** Multi format parsing (PyMuPDF) and baseline extraction over the CUAD v1 dataset.
