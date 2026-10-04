@@ -4,7 +4,7 @@ NLP pipeline designed to ingest unstructured commercial contracts, extract 41 st
 
 ## Project Architecture (3-Month Timeline)
 * **Phase 1 (Done):** Multi format parsing (PyMuPDF) and baseline extraction over the CUAD v1 dataset.
-* **Phase 2 (Current):** Fine-tuning transformer models for clause span extraction and developing the cosine-similarity risk threshold logic.
+* **Phase 2 (Current):** Finetuning transformer models for clause span extraction and developing the cosine-similarity risk threshold logic.
 * **Phase 3:** Streamlit UI integration with real time risk summaries and secure runtime API credential handling.
 
 ## Tech Stack
